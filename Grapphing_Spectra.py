@@ -5,7 +5,7 @@ from scipy import signal as ss
 import pandas as pd
 from scipy.signal import find_peaks
 
-# get_data opens the spectrum xml file and returning X Y values
+# get_data opens the spectrum xml file and returning X Y values in a df (Radiacode outputs data as an XML)
 def get_data(file):
     tree = et.parse(file)
     root = tree.getroot()
@@ -19,7 +19,7 @@ def get_data(file):
     df = pd.DataFrame({'energy': x, 'counts': y})
     return df
 
-
+# Here are some example spectra
 Ba133 = get_data("Ba133.xml")
 Co60 = get_data("Co60.xml")
 Cs137 = get_data("Cs137.xml")
@@ -63,7 +63,7 @@ ax[1, 1].legend()
 # Adding an overall title for the figure
 plt.suptitle('Gamma Spectra of Different Isotopes')
 plt.tight_layout()
-# Display the plot
+# Save the plot
 plt.savefig("sample_spectra.svg", format="svg")
 
 plt.show()
