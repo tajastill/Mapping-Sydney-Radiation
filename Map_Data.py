@@ -74,7 +74,7 @@ data = [
 ]
 
 
-# plot the HPGe data on the map
+# plot the HPGe data on the map with pop-up text describing them
 for lat, lon, k40, th232, u238 in data:
     popup_text = f"K40: {k40} mg/kg<br>Th: {th232} mg/kg<br>U: {u238} mg/kg"
     folium.Marker(
